@@ -1,0 +1,20 @@
+Web UI for Employee Directory(Thymeleaf + Springboot)
+
+User should be able:
+  -Get list of employees
+  -Add a new employee
+  -Update an employee
+  -Delete an employee
+
+
+Architecture
+
+Web Browser -> request goes to EmployeeController <-> Employee Service<-> Employee Repository <-> Database
+
+*** from DB->Employee Repository->Employee Service->EmployeeController->Send request using Thymeleaf template->Display View to web browser
+
+Project set up
+-Extend existing Employee project and add DB integration
+-Add EmployeeService,EmployeeRepository nd Employee entity
+-Create EmployeeController and thymeleaf templates
+
