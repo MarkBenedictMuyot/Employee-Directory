@@ -1,9 +1,49 @@
 1. Get list of employees
+	@Controller
+@RequestMapping("/employees")
+public class EmployeeController {
+
+    private EmployeeService employeeService;
+
+    //since only one constructor @Autowire is optional since it is autoinjected
+    public EmployeeController(EmployeeService theEmployeeService) {
+
+        employeeService = theEmployeeService;
+    }
+    @GetMapping("/list")
+    public String listEmployees(Model theModel) {
+    List<Employee> theEmployees =employeeService.findAll();
+    theModel.addAttribute("employees", theEmployees);
+    return "list-employees";
+    }
+
+}
 
 2. Add new employee
+  - add Employee button for list-employees.html
+  - Create HTML form for new Employee
+  - Process from data to save employee 
+	(EmpController<->EmpService<->EmpRepo<->DB)
+
 
 3. Update an existing employee
+  -update button
+  -prepopulate form
+  -save
 
 4. Delete an existing employee
+
+
+th:action - location to send form data
+th:object - reference to model attribute
+th:field  - Bind input field to a property on model attriribute
+
+
+ref:
+
+luv2code.com/thymeleaf-create-form
+
+Post/Redirect/Get Pattern - avoid duplicate sumbission
+luv2code.com/post-redirect-get
 
 
